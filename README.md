@@ -35,8 +35,8 @@ You can create the Python environment to run this project by passing the followi
 `conda create --name privacy_porcupine python=3.9`  
 `conda activate privacy_porcupine`  
 `pip install torch==1.13.1`  
-`pip install numpy==1.26.3`
-`pip install scipy==1.11.4`
+`pip install numpy==1.26.3` 
+`pip install scipy==1.11.4` 
 `pip install matplotlib==3.2.2`
 
 You can also install all the above requirements by running the following command in your Python environment:  
