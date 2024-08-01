@@ -7,7 +7,7 @@ This repository contains PyTorch implementation of our paper called Privacy-PORC
 # **Contents of this repository**
 - **train SFVQ directory**
   - `spacefilling_vq.py`: contains the main class of Space-Filling Vector Quantization
-  - `train.py`: an example showing how to use and optimize Space-Filline Vector Quantization to learn a Normal distribution
+  - `train_sfvq.py`: an example showing how to use and optimize Space-Filline Vector Quantization to learn a Normal distribution
   - `utils.py`: contains some utility functions used in other codes
   - `plot_training_logs.py`: plots the training logs (which was saved druring execution of "train.py") in a pdf file
 
