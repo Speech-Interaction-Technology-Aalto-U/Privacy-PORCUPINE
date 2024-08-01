@@ -5,7 +5,7 @@ This repository contains PyTorch implementation of our paper called Privacy-PORC
 ![alt text](https://github.com/Speech-Interaction-Technology-Aalto-U/Privay-PORCUPINE/blob/main/vq_vs_sfvq.png?raw=true)
 
 # **Contents of this repository**
-- train SFVQ directory
+- **train SFVQ directory**
   - `spacefilling_vq.py`: contains the main class of Space-Filling Vector Quantization
   - `train.py`: an example showing how to use and optimize Space-Filline Vector Quantization to learn a Normal distribution
   - `utils.py`: contains some utility functions used in other codes
@@ -13,11 +13,11 @@ This repository contains PyTorch implementation of our paper called Privacy-PORC
 
 Due to some limitations of TensorBoard, we prefered our own custom logging function ('plot_training_logs.py').
 
-- train VQ directory
+- **train VQ directory**
   - `plain_vq.py`: contains the main class of Vector Quantization
   - `train_vq.py`: an example showing how to use and optimize Space-Filline Vector Quantization to learn a Normal distribution
 
-- Metrics Evaluation directory
+- **Metrics Evaluation directory**
   - `plot_evaluation_metrics.py`: code to compute and plot the evaluation metrics
   - `evaluation_utils.py`: contains some utility functions used in `plot_evaluation_metrics.py` code
 
