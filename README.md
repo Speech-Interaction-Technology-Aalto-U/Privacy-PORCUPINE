@@ -37,32 +37,27 @@ You can create the Python environment by passing the following lines of codes in
 
 The requirements to use this repository is not that much strict, becuase the functions used in the code are so basic such that they also work with higher Python, PyTorch and Numpy versions.
 
-# **Important: Codebook Replacement**
+# **Important note about training Space-Filling Vector Quantizer**
 
-During training, we apply codebook replacement function (explained in section III.C in [the paper](https://ieeexplore.ieee.org/abstract/document/9696322)) to discard those codebook vectors which are not involved in the vector quantization process. There are two reasons for that; 1) the codebook replacement acts as a trigger to make the codebook vectors to start updating in some applications , 2) it allows exploiting from all available codebook vectors (better vector quantization perfromance) and avoiding isolated and rarely used codebooks. The codebook replacement is implemented as a function named `replace_unused_codebooks` in the NSVQ.py class. The essential explanations are prepared for this function in the code. Feel free to change the **discarding_threshod** and **num_batches** parameters which are related to the codebook replacement function based on your application. However, the recommended procedure of codebook replacement is in the following.
+In the "spacefilling_vq.py" code, there is a boolean variable "backpropagation" which should be set based on one of the following situations:
 
-Call this function after a specific number of training batches (**num_batches**) during training. In the beginning, the number of replaced codebooks might increase (the number of replaced codebooks will be printed out during training). However, the main trend must be decreasing after some training time, because the codebooks will find a location inside the distribution which makes them useful representative of the distribution. If the replacement trend is not decreasing, increase the **num_batches** or decrease the **discarding_threshold**. Stop calling the function at the latest stages of training (for example the last 1000 training batches) in order not to introduce any new codebook entry which would not have the right time to be tuned and optimized until the end of training. Remember that the number of repalced codebook vectors will be printed after each round you call the function.
+- **backpropagation=False**: If we intend to train the SpaceFillingVQ module exclusively (independent from any other module that requires training) on a distribution. In this case, we use the mean squared error (MSE) between the input vector and its quantized version as the loss function (exactly like what we did in the "train.py").
 
-# **Results directory**
-
-The "Results" directory contains the values of objective metrics, which were used to plot the figures (Fig1 and Fig3) of the paper. The values are provided in JSON file format, and refer to PESQ, pSNR, and STOI metrics for the speech coding and SSIM and PeakSNR metrics for image compression scenario. We have shared these results with the aim of saving time for reproducabiltiy and making it easier for researchers to do potential comparisons. Note that in order to calculate the PESQ values, we have installed and used the **PESQ package from PyPI** ([under this link](https://pypi.org/project/pesq/)) in our Python environment.
+- **backpropagation=True**: If we intend to train the SpaceFillingVQ jointly with other modules that requires gradients for training, we pass the gradients through the SpaceFillingVQ module using our recently porposed [Noise Substitution in Vector Quantization (NSVQ)](https://ieeexplore.ieee.org/abstract/document/9696322) technique. In this case, you do not need to define or add an exclusive loss term for SpaceFillingVQ optimization. The optimization loss function must only include the global loss function you use for your specific application.
 
 # **Abstract of the paper**
 
-Machine learning algorithms have been shown to be highly effective in solving optimization problems in a wide range of applications. Such algorithms typically use gradient descent with backpropagation and the chain rule. Hence, the backpropagation fails if intermediate gradients are zero for some functions in the computational graph, because it causes the gradients to collapse when multiplying with zero. Vector quantization is one of those challenging functions for machine learning algorithms, since it is a piece-wise constant function and its gradient is zero almost everywhere. A typical solution is to apply the straight through estimator which simply copies the gradients over the vector quantization function in the backpropagation. Other solutions are based on smooth or stochastic approximation. This study proposes a vector quantization technique called NSVQ, which approximates the vector quantization behavior by substituting a multiplicative noise so that it can be used for machine learning problems. Specifically, the vector quantization error is replaced by product of the original error and a normalized noise vector, the samples of which are drawn from a zero-mean, unit-variance normal distribution. We test our proposed NSVQ in three scenarios with various types of applications. Based on the experiments, the proposed NSVQ achieves more accuracy and faster convergence in comparison to the straight through estimator, exponential moving averages, and the MiniBatchKmeans approaches.
+Speech signals contain a vast range of private information such as its text, speaker identity, emotions, and state of health. Privacy-preserving speech processing seeks to filter out any private information that is not needed for downstream tasks, for example with an information bottleneck, sufficiently tight that only the desired information can pass through. We however demonstrate that the occurrence frequency of codebook elements in bottlenecks using vector quantization have an uneven information rate, threatening privacy. We thus propose to use space-filling vector quantization (SFVQ) together with occurrence normalization, balancing the information rate and thus protecting privacy. Our experiments with speaker identification validate the proposed method. This approach thus provides a generic tool for quantizing information bottlenecks in any speech applications such that their privacy disclosure is predictable and quantifiable.
 
 # **Cite the paper as**
 
-Mohammad Hassan Vali and Tom Bäckström, “NSVQ: Noise Substitution in Vector Quantization for Machine Learning,” IEEE Access, vol. 10, pp. 13598–13610, 2022.
+Mohammad Hassan Vali and Tom Bäckström, “Privacy PORCUPINE: Anonymization of Speaker Attributes Using Occurrence Normalization for Space-Filling Vector Quantization,” in Proceedings of Interspeech 2024.
 
 ```bibtex
-@article{vali2022nsvq,
-  title={NSVQ: {N}oise {S}ubstitution in {V}ector {Q}uantization for {M}achine {L}earning},
+@inproceedings{vali2024porcupine,
+  title={{P}rivacy {PORCUPINE}: {A}nonymization of {S}peaker {A}ttributes {U}sing {O}ccurrence {N}ormalization for {S}pace-{F}illing {V}ector {Q}uantization},
   author={Vali, Mohammad Hassan and Bäckström, Tom},
-  journal={IEEE Access},
-  volume={10},
-  pages={13598--13610},
-  year={2022},
-  publisher={IEEE}
+  booktitle={Proceedings of Interspeech},
+  year={2024}
 }
 ```
