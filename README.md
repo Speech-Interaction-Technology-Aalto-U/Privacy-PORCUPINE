@@ -11,7 +11,7 @@ This repository contains PyTorch implementation of our paper called Privacy-PORC
   - `utils.py`: contains some utility functions used in other codes
   - `plot_training_logs.py`: plots the training logs (which was saved druring execution of "train.py") in a pdf file
 
-Due to some limitations of TensorBoard, we prefered our own custom logging function ('plot_training_logs.py').
+Due to some limitations of TensorBoard, we prefered our own custom logging function (`plot_training_logs.py`).
 
 - **train VQ directory**
   - `plain_vq.py`: contains the main class of Vector Quantization
@@ -20,6 +20,8 @@ Due to some limitations of TensorBoard, we prefered our own custom logging funct
 - **Metrics Evaluation directory**
   - `plot_evaluation_metrics.py`: code to compute and plot the evaluation metrics
   - `evaluation_utils.py`: contains some utility functions used in `plot_evaluation_metrics.py` code
+  - `codebooks_vq`: contains trained VQ codebooks required for computing and plotting the evaluation metrics
+  - `codebooks_sfvq`: contains trained SFVQ codebooks required for computing and plotting the evaluation metrics
 
 # **Required packages**
 - Python (version: 3.8 or higher)
@@ -37,7 +39,7 @@ You can create the Python environment by passing the following lines of codes in
 
 The requirements to use this repository is not that much strict, becuase the functions used in the code are so basic such that they also work with higher Python, PyTorch and Numpy versions.
 
-# **Important note about training Space-Filling Vector Quantizer**
+# **Important note about training SFVQ**
 
 In the "spacefilling_vq.py" code, there is a boolean variable "backpropagation" which should be set based on one of the following situations:
 
