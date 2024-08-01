@@ -1,14 +1,14 @@
 # Privay-PORCUPINE: Anonymization of Speaker Attributes Using Occurrence Normalization for Space-Filling Vector Quantization
 
-![alt text](https://github.com/Speech-Interaction-Technology-Aalto-U/Privay-PORCUPINE/blob/main/vq_vs_sfvq.png?raw=true)
-
 This repository contains PyTorch implementation of our paper called Privacy-PORCUPINE, which is intended to provide more privacy protection for speech signals (which are quantized in an information bottleneck) using our recently proposed Space-Filling Vector Quantization technique together with a codebook resampling technique. The paper is published in Interspeech conference, September 2024.
 
-# **Contents of this repository**
+![alt text](https://github.com/Speech-Interaction-Technology-Aalto-U/Privay-PORCUPINE/blob/main/vq_vs_sfvq.png?raw=true)
 
-- `NSVQ.py`: contains the main class of Noise Substitution in Vector Quantization (NSVQ)
-- `train.py`: an example showing how to use and optimize NSVQ to learn a Normal distribution
-- `plot_training_logs.py`: plots the training logs (which was saved druring execution of "train.py") in a pdf file
+# **Contents of this repository**
+- train SFVQ directory
+  - `NSVQ.py`: contains the main class of Noise Substitution in Vector Quantization (NSVQ)
+  - `train.py`: an example showing how to use and optimize NSVQ to learn a Normal distribution
+  - `plot_training_logs.py`: plots the training logs (which was saved druring execution of "train.py") in a pdf file
 
 Due to some limitations of TensorBoard, we prefered our own custom logging function (plot_training_logs.py).
 
