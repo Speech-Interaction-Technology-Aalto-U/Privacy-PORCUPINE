@@ -11,12 +11,15 @@ This repository contains PyTorch implementation of our paper called Privacy-PORC
   - `utils.py`: contains some utility functions used in other codes
   - `plot_training_logs.py`: plots the training logs (which was saved druring execution of "train.py") in a pdf file
 
-Due to some limitations of TensorBoard, we prefered our own custom logging function (plot_training_logs.py).
+Due to some limitations of TensorBoard, we prefered our own custom logging function ('plot_training_logs.py').
 
 - train VQ directory
   - `plain_vq.py`: contains the main class of Vector Quantization
-  - `train.py`: an example showing how to use and optimize Space-Filline Vector Quantization to learn a Normal distribution
+  - `train_vq.py`: an example showing how to use and optimize Space-Filline Vector Quantization to learn a Normal distribution
 
+- Metrics Evaluation directory
+  - `plot_evaluation_metrics.py`: code to compute and plot the evaluation metrics
+  - `evaluation_utils.py`: contains some utility functions used in `plot_evaluation_metrics.py` code
 
 # **Required packages**
 - Python (version: 3.8 or higher)
