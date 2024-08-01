@@ -24,18 +24,23 @@ Due to some limitations of TensorBoard, we prefered our own custom logging funct
   - `codebooks_sfvq`: contains trained SFVQ codebooks required for computing and plotting the evaluation metrics
 
 # **Required packages**
-- Python (version: 3.8 or higher)
-- PyTorch (version: 1.8.1)
-- Numpy (version: 1.20.2)  
-- Matplotlib (version: 3.6)
+- Python: (version 3.9)
+- PyTorch (version: 1.13.1)
+- Numpy (version: 1.26.3)
+- Scipy (version: 1.11.4)
+- Matplotlib (version: 3.2.2)
 
-You can create the Python environment by passing the following lines of codes in your terminal window in the following order:
+You can create the Python environment to run this project by passing the following lines of code in your terminal window in the following order:
 
-`conda create --name nsvq python=3.8`  
-`conda activate nsvq`  
-`pip install torch==1.8.1`  
-`pip install numpy==1.20.2`  
-`pip install matplotlib==3.6`
+`conda create --name privacy_porcupine python=3.9`  
+`conda activate privacy_porcupine`  
+`pip install torch==1.13.1`  
+`pip install numpy==1.26.3`
+`pip install scipy==1.11.4`
+`pip install matplotlib==3.2.2`
+
+You can also install all the above requirements by running the following command in your Python environment:  
+`pip install -r requirements.txt`  
 
 The requirements to use this repository is not that much strict, becuase the functions used in the code are so basic such that they also work with higher Python, PyTorch and Numpy versions.
 
