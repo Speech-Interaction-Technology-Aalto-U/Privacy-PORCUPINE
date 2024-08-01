@@ -6,11 +6,17 @@ This repository contains PyTorch implementation of our paper called Privacy-PORC
 
 # **Contents of this repository**
 - train SFVQ directory
-  - `NSVQ.py`: contains the main class of Noise Substitution in Vector Quantization (NSVQ)
-  - `train.py`: an example showing how to use and optimize NSVQ to learn a Normal distribution
+  - `spacefilling_vq.py`: contains the main class of Space-Filling Vector Quantization
+  - `train.py`: an example showing how to use and optimize Space-Filline Vector Quantization to learn a Normal distribution
+  - `utils.py`: contains some utility functions used in other codes
   - `plot_training_logs.py`: plots the training logs (which was saved druring execution of "train.py") in a pdf file
 
 Due to some limitations of TensorBoard, we prefered our own custom logging function (plot_training_logs.py).
+
+- train VQ directory
+  - `plain_vq.py`: contains the main class of Vector Quantization
+  - `train.py`: an example showing how to use and optimize Space-Filline Vector Quantization to learn a Normal distribution
+
 
 # **Required packages**
 - Python (version: 3.8 or higher)
