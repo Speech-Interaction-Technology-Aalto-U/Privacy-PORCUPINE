@@ -5,9 +5,9 @@ import math
 import itertools
 import os
 
-print('***************************************************************')
-print("* Ignore 'RuntimeWarning: divide by zero encountered in log2' * \n* We put zero for those values!                               *")
-print('***************************************************************')
+print('*************************************************************')
+print("Ignore 'RuntimeWarning: divide by zero encountered in log2' \nThese values will be multiplied by zero in KL div computation!")
+print('*************************************************************')
 
 bitrate_list = [4,5,6] # bitrates you trained VQ and SFVQ
 run_index_list = [1,2,3,4,5] # run index (to plot the confidence intervals for the results you need to train each
