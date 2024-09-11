@@ -1,4 +1,4 @@
-# Privay-PORCUPINE: Anonymization of Speaker Attributes Using Occurrence Normalization for Space-Filling Vector Quantization
+# Privacy-PORCUPINE: Anonymization of Speaker Attributes Using Occurrence Normalization for Space-Filling Vector Quantization
 
 This repository contains PyTorch implementation of our paper called Privacy-PORCUPINE, which is intended to provide more privacy protection for speech signals (which are quantized in an information bottleneck) using our recently proposed Space-Filling Vector Quantization technique together with a codebook resampling technique. The paper is published in Interspeech conference, September 2024.
 
