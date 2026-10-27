@@ -122,17 +122,17 @@ for bitrate_idx, bitrate in enumerate(bitrate_list):
     print('##############################')
 
 
-np.save(save_address + f'average_disc_vq', average_disclosure_vq)
-np.save(save_address + f'worst_case_disc_vq', worst_case_disclosure_array_vq)
-np.save(save_address + f'std_vq', std_array_vq)
-np.save(save_address + f'kl_div_vq', kl_div_array_vq)
-np.save(save_address + f'sparseness_vq', sparseness_array_vq)
+np.save(os.path.join(save_address, 'average_disc_vq'), average_disclosure_vq)
+np.save(os.path.join(save_address, 'worst_case_disc_vq'), worst_case_disclosure_array_vq)
+np.save(os.path.join(save_address, 'std_vq'), std_array_vq)
+np.save(os.path.join(save_address, 'kl_div_vq'), kl_div_array_vq)
+np.save(os.path.join(save_address, 'sparseness_vq'), sparseness_array_vq)
 
-np.save(save_address + f'average_disc_sfvq', average_disclosure_sfvq)
-np.save(save_address + f'worst_case_disc_sfvq', worst_case_disclosure_array_sfvq)
-np.save(save_address + f'std_sfvq', std_array_sfvq)
-np.save(save_address + f'kl_div_sfvq', kl_div_array_sfvq)
-np.save(save_address + f'sparseness_sfvq', sparseness_array_sfvq)
+np.save(os.path.join(save_address, 'average_disc_sfvq'), average_disclosure_sfvq)
+np.save(os.path.join(save_address, 'worst_case_disc_sfvq'), worst_case_disclosure_array_sfvq)
+np.save(os.path.join(save_address, 'std_sfvq'), std_array_sfvq)
+np.save(os.path.join(save_address, 'kl_div_sfvq'), kl_div_array_sfvq)
+np.save(os.path.join(save_address, 'sparseness_sfvq'), sparseness_array_sfvq)
 
 #################################################################################
 import matplotlib.pyplot as plt
@@ -192,7 +192,7 @@ ax1.set_xticks(x_range)
 ax1.set_xticklabels(bitrate_list)
 ax1.set_title('(a)')
 leg = ax1.legend(('VQ','SFVQ'), prop={"size": text_size})
-for legobj in leg.legendHandles:
+for legobj in leg.legend_handles:
     legobj.set_linewidth(legend_size)
 
 
@@ -212,7 +212,7 @@ ax2.set_xticklabels(bitrate_list)
 ax2.set_title('(b)')
 legend_list = ['VQ worst-case disclosure','SFVQ worst-case disclosure', 'VQ average disclosure','SFVQ average disclosure', 'Average disclosure upper bound']
 leg = ax2.legend((legend_list), loc=4, bbox_to_anchor=(1.01, -0.015), fontsize=15, framealpha=0.95)
-for legobj in leg.legendHandles:
+for legobj in leg.legend_handles:
     legobj.set_linewidth(legend_size)
 
 
@@ -221,12 +221,12 @@ ax3.plot(x_range, sparseness_sfvq_mean, 'blue')
 ax3.fill_between(x_range, sparseness_vq_quan_low, sparseness_vq_quan_high, alpha=0.3, color='red')
 ax3.fill_between(x_range, sparseness_sfvq_quan_low, sparseness_sfvq_quan_high, alpha=0.3, color='deepskyblue')
 ax3.set_xlabel('Quantization Bitrate')
-ax3.set_ylabel('Sparseness = $\ell_2 / \ell_1$')
+ax3.set_ylabel(r'Sparseness = $\ell_2 / \ell_1$')
 ax3.set_xticks(x_range)
 ax3.set_xticklabels(bitrate_list)
 ax3.set_title('(c)')
 leg = ax3.legend(('VQ','SFVQ'), prop={"size": text_size})
-for legobj in leg.legendHandles:
+for legobj in leg.legend_handles:
     legobj.set_linewidth(legend_size)
 
 
@@ -240,7 +240,7 @@ ax4.set_xticks(x_range)
 ax4.set_xticklabels(bitrate_list)
 ax4.set_title('(d)')
 leg = ax4.legend(('VQ','SFVQ'), prop={"size": text_size})
-for legobj in leg.legendHandles:
+for legobj in leg.legend_handles:
     legobj.set_linewidth(legend_size)
 
 plt.tight_layout()
