@@ -39,7 +39,7 @@ scatter_index[1:] = scatter_index[1:] - 1
 plt.plot(total_vq_loss)
 plt.scatter(scatter_index, total_vq_loss[scatter_index], s=50, marker='X', c='red')
 for i in range(desired_vq_bitrate - 1):
-    plt.annotate(f'{i + 2}Bits', (scatter_index[i], total_vq_loss[scatter_index[i]]))
+    plt.annotate(f'{i + 2}Bits', (scatter_index[i], total_vq_loss[scatter_index[i], 0]))
 plt.title(f'VQ Loss')
 pdf_file.savefig(fig, bbox_inches='tight')
 
@@ -49,7 +49,7 @@ total_perplexity = total_perplexity.reshape(-1,1)
 plt.plot(total_perplexity)
 plt.scatter(scatter_index, total_perplexity[scatter_index], s=50, marker='X', c='red')
 for i in range(desired_vq_bitrate - 1):
-    plt.annotate(f'{i + 2}Bits', (scatter_index[i], total_perplexity[scatter_index[i]]))
+    plt.annotate(f'{i + 2}Bits', (scatter_index[i], total_perplexity[scatter_index[i], 0]))
 plt.title('Perplexity')
 pdf_file.savefig(fig, bbox_inches='tight')
 
